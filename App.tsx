@@ -8,10 +8,10 @@ export default function App() {
       <Text style={styles.title}>My Series</Text>
       <StatusBar style="auto" />
 
-      <Serie />
-      <Serie />
-      <Serie />
-      <Serie />
+      <Serie title="Flash" />
+      <Serie title="The Walking Dead" />
+      <Serie title="Arqueiro" />
+      <Serie title="Breaking Bad" />
     </View>
   );
 }
