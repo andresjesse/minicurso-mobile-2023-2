@@ -1,5 +1,13 @@
-import { View, Text, Button, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React, { useState } from "react";
+import { AntDesign } from "@expo/vector-icons";
 
 interface SerieProps {
   title: string;
@@ -17,13 +25,22 @@ export default function Serie({ title, imageUrl }: SerieProps) {
       <Image style={styles.image} source={{ uri: imageUrl }} />
 
       <View style={styles.container}>
-        <Button title="-" onPress={() => setSeason(season - 1)} />
-        <Text style={styles.text}>S{season}</Text>
-        <Button title="+" onPress={() => setSeason(season + 1)} />
+        <TouchableOpacity onPress={() => setSeason(season - 1)}>
+          <AntDesign name="minuscircleo" size={24} color="black" />
+        </TouchableOpacity>
 
-        <Button title="-" onPress={() => setEpisode(episode - 1)} />
+        <Text style={styles.text}>S{season}</Text>
+        <TouchableOpacity onPress={() => setSeason(season + 1)}>
+          <AntDesign name="pluscircleo" size={24} color="black" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => setEpisode(episode - 1)}>
+          <AntDesign name="minuscircleo" size={24} color="black" />
+        </TouchableOpacity>
         <Text style={styles.text}>E{episode}</Text>
-        <Button title="+" onPress={() => setEpisode(episode + 1)} />
+        <TouchableOpacity onPress={() => setEpisode(episode + 1)}>
+          <AntDesign name="pluscircleo" size={24} color="black" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -37,6 +54,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
+    gap: 16,
   },
   title: {
     marginTop: 16,
